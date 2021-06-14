@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GreenPanda | Productos</title>
+  <title>GreenPanda | Registro</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <link rel="stylesheet" type="text/css" href="{% static 'GreenPanda/css/estilo.css' %}">
         <link href="{% static 'GreenPanda/css/bootstrap.min.css' %}" type="text/css" rel="stylesheet"> 
-        <link rel="icon" type="image/png" href="img/icono.jpg" />
+        <link rel="icon" type="image/png" href="{% static 'GreenPanda/img/icono.jpg' %}" />
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
         <!-- Google Fonts -->
@@ -16,6 +16,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
         <!-- Material Design Bootstrap -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css" rel="stylesheet">
+        <script src="{% static 'GreenPanda/js/validarRegistro.js' %}"></script>
 </head>
 <body>
   <style>
@@ -62,85 +63,50 @@
         </nav>
         <br>
         <br>
-        <div class="container">
-        <h1>Productos</h1>
-      </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <figure>
-                
-                  <img src="{% static 'GreenPanda/img/Cepillo dental bambu.jpeg' %}" alt=""/>
-                  <div class="capa">
-                  <h3>Cepillos de bambú</h3>
-                  <p>Cepillos dentales de bambú. Mango 100% biodegradable
-                    y compostable.
-                    varios modelos disponibles, desde cerdas con dureza
-                    suave a mediana.</p>
-                    <p>$1500 C/U</p>
+        <div class="contenedor ">
+            <h1>Registro de usuario</h1>
+            <h5>'*' Obligatorio</h5>
+            <!--Formulario-->
+            <form name="datos" method="POST" action="" onsubmit="return validacion()">
+                <div class="row">
+                    <div class="col-md-5">
+                <div class="form-group">
+                    <!--Ingresar Nombre usuario-->
+                    <label for="Nombre">Ingrese su nombre: *</label><br>
+                    <input type="text" name="nombre" id="nom" class="form-group" value="" placeholder="ej: Juan Francisco" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" >
                 </div>
-              </figure>
-            </div>
-          <div class="col-md-4">
-            <figure>
-              <img src="{% static 'GreenPanda/img/Cepillo interdental.jpeg' %}" alt="" />
-              <div class="capa">
-                <h3>Cepillo interdental de bambú</h3>
-                <p>Cepillo interdental con mango de bambú biodegradable.</p>
-                <p>$3500 5ud.</p>
-              </div>
-            </figure>
-          </div>
-          <div class="col-md-4">
-            <figure>
-              <img src="{% static 'GreenPanda/img/Hilo dental carbo.jpeg' %}" alt="" />
-              <div class="capa">
-                <h3>Hilo dental de carbon</h3>
-                <p>Hilo dental hecho a base de carbon, con 30 metros de largo
-                  y sabor a menta.</p>
-                  <p>$3000 C/U</p>
-                  <p>$2500 Recarga</p>
-              </div>
-            </figure>
-          </div>
-        </div>
-          <div class="row">
-            <div class="col-md-4">
-            <figure>
-              <img src="{% static 'GreenPanda/img/Hilo Dental.jpeg' %}" alt="" />
-              <div class="capa">
-                <h3>Hilo dental</h3>
-                <p>Hilo dental hecho a base de maíz, con 30 metros de largo
-                  y sabor a menta.</p>
-                  <p>$3000 C/U</p>
-                  <p>$2500 Recarga</p>
-              </div>
-            </figure>
-            </div>
-          <div class="col-md-4">
-            <figure>
-              <img src="{% static 'GreenPanda/img/cotonitos verdes.jpeg' %}" alt=""/>
-              <div class="capa">
-                <h3>Cotonitos verdes</h3>
-                <p>Cotonitos biodegradables de bambú y algodon verde.
-                  cantidad 200 unidades.</p>
-                  <p>$3000 C/U</p>
-              </div>
-            </figure>
-          </div>
-          <div class="col-md-4">
-            <figure>
-              <img src="{% static 'GreenPanda/img/Soporte biodegradable.jpeg' %}" alt=""/>
-              <div class="capa">
-                <h3>Soporte biodegradable</h3>
-                <p>Soporte biodegradable de bambú para cepillo de dientes.
+                <div class="form-group">
+                    <!--Ingresar Apellido usuario-->
+                    <label for="apellido">Ingrese sus apellidos: *</label><br>
+                    <input type="text" name="apellido" id="ape" class="form-group" value="" placeholder="ej: Lopez Rodriguez" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+">
+                </div>
+                <div class="form-group">
+                    <!--Ingresar Correo-->
+                    <label for="correo">Ingrese su correo electrónico: *</label><br>
+                    <input type="email" id="correo" class="form-group" value="" placeholder="ej: ejemplo@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <!--Ingresar Contraseña-->
+                    <label for="password">Ingrese una contraseña: *</label><br>
+                    <input type="password" id="password" class="form-group" value="" minlength="8" maxlength="12" required>
+                </div>
+                <fieldset>
+                    <!--Opciones-->
+                    <label for="respuesta">Alguna vez has comprado productos biodegradables(esta respuesta nos ayudara a darte una mejor experiencia) *</label>
+                    <input type="radio" id="si" name="respuesta" value="si"><label for="si">Si</label>
+                    <input type="radio" id="no" name="respuesta" value="no"><label for="no">no</label>
 
-                    Está hecho de bambú biodegradable y respetuoso con el medio ambiente, lo que ayuda a su huella de carbono.</p>
-                    <p>$2000 C/U</p>
-              </div>
-            </figure>
-          </div>
+            </fieldset>
+            <!--Ingresar motivos-->
+            <label for="mensaje">¿Porque decidiste comprar productos biodegradables?</label><br><br>
+            <textarea name="mensaje" id="mensaje" cols="80" rows=8></textarea>
+            <br><br>
+            <!--Botones enviar y limpiar-->
+            <input type="submit" value="Enviar"> <input type="reset" value="limpiar">
+
+            </div>
         </div>
+            </form>
         </div>
  <!--Copyright-->
  <div class="copyright py-4 text-center text-white">

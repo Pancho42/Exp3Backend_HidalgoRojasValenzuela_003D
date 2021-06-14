@@ -20,5 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('GreenPanda.urls')),
     path('Productos/', include('GreenPanda.urls')),
-    path('QuienesSomos/', include('GreenPanda.urls'))
+    path('QuienesSomos/', include('GreenPanda.urls')),
+    path('Registro/', include('GreenPanda.urls')),
+    path('Despacho/', include('GreenPanda.urls')),
 ]

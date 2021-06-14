@@ -25,3 +25,19 @@ def QuienesSomos(request):
       
 
     )
+
+def Registro(request):
+
+    return render(request, 'Registro.html'
+
+      
+
+    )
+
+def Despacho(request):
+
+    return render(request, 'Despacho.html'
+
+      
+
+    )
