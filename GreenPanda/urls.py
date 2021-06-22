@@ -7,4 +7,6 @@ urlpatterns=[
     path('QuienesSomos/',views.QuienesSomos, name='QuienesSomos'),
     path('Registro/',views.Registro, name='Registro'),
     path('Despacho/',views.Despacho, name='Despacho'),
+    path('Comentarios/',views.Comentarios, name='Comentarios'),
+    path('CrearComentario/',views.CrearComentario, name='CrearComentario'),
 ]

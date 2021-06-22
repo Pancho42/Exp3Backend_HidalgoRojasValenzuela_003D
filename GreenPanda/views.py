@@ -41,3 +41,19 @@ def Despacho(request):
       
 
     )
+
+def Comentarios(request):
+
+    return render(request, 'Comentarios.html'
+
+      
+
+    )
+
+def CrearComentario(request):
+
+    return render(request, 'CrearComentario.html'
+
+      
+
+    )
