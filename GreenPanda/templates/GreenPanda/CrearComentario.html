@@ -50,6 +50,41 @@
             </div>
         </nav>
 
+        <div class="container">
+          <div class="row">
+              <h1>Dejanos tu Comentario</h1>
+          </div>
+  
+          <div class="row">
+              <div class="row">
+                  <form method="POST" action="#" id="formulario">
+                      {%csrf_token%}
+                      <div class="form-group">
+                          {{comentario_form.NombreC.label}}
+                          {{comentario_form.NombreC}}
+                      </div>
+                      <div class="form-group">
+                          {{comentario_form.comentario.label}}
+                          {{comentario_form.comentario}}
+                      </div>
+                      <div class="form-group">
+                          {{comentario_form.resenna.label}}
+                          {{comentario_form.resenna}}
+                      </div>
+                      <div class="form-group">
+                        <input type="submit" value="Enviar"> <input type="reset" value="limpiar">
+                      </div>
+                  </form>
+              </div>
+  
+  
+  
+          </div>
+  
+  
+  
+      </div>
+
                 <!--Copyright-->
                 <div class="copyright py-4 text-center text-white">
                     <div class="container"><small>Copyright © GreenPanda 2021</small></div>

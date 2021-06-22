@@ -50,6 +50,24 @@
             </div>
         </nav>
 
+        <div class="row">
+          <table border="1"> <!--Mostramos todos los vehiculos almacenados en admin-->
+              <tr>
+                  <td>Nombre</td>
+                  <td>Comentario</td>
+                  <td>Reseña</td>
+              </tr>
+              {%for ve in datos %}
+                  <tr>
+                      <td>{{ve.NombreC}}</td>
+                      <td>{{ve.comentario}}</td>
+                      <td>{{ve.resenna}}</td>
+                  </tr>
+              {%endfor%}
+          </table>
+    
+        </div>
+
                 <!--Copyright-->
                 <div class="copyright py-4 text-center text-white">
                     <div class="container"><small>Copyright © GreenPanda 2021</small></div>

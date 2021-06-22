@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import ComentarioC
+from .forms import ComentarioForm
 
 # Create your views here.
 
@@ -44,15 +46,25 @@ def Despacho(request):
 
 def Comentarios(request):
 
-    return render(request, 'Comentarios.html'
+    comentarios = ComentarioC.objects.all
 
-      
-
+    
+    
+    return render(request, 'Comentarios.html', context ={ 'datos':comentarios},
+    
+    
+    
     )
 
 def CrearComentario(request):
-
-    return render(request, 'CrearComentario.html'
+    if request.method=='POST':
+        comentario_form = ComentarioForm(request.POST)
+        if comentario_form.is_valid():
+            comentario_form.save()
+            return redirect('Comentarios')
+    else:
+        comentario_form= ComentarioForm()
+    return render(request, 'GreenPanda/CrearComentario.html', {'comentario_form': comentario_form}
 
       
 
