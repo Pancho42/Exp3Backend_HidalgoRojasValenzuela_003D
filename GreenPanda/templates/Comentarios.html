@@ -50,29 +50,34 @@
             </div>
         </nav>
 
-        <div class="row">
-          <table class="table"> <!--Mostramos todos los vehiculos almacenados en admin-->
-              <thead>
-                <tr>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Comentario</th>
-                  <th scope="col">Reseña</th>
-                </tr>
-              </thead>
-              <tbody>
-                {%for ve in datos %}
-                    <tr>
-                        <td>{{ve.NombreC}}</td>
-                        <td>{{ve.comentario}}</td>
-                        <td>{{ve.resenna}}</td>
-                        <td><a href="{% url 'ModComentario' ve.NombreC %}">Modificar</a></td>
-                        <td><a href="{% url 'eliminar' ve.NombreC %}">Eliminar</a></td>
-                    </tr>
-                {%endfor%}
-              </tbody>
-          </table>
-    
-        </div>
+        <!--sección de comentario-->
+        <div class="section ">
+          <div class="container ">
+              <h2 style="font-family:Boquerón">Comentarios</h2>
+              <div class="row ">
+                  <div class="col-lg-8 mx-auto ">
+                      <div class="caja" style="background-color: rgba(255, 255, 255, 0.5);font-family: Boquerón;">
+                        {%for ve in datos %}
+                          <div>
+                              <img class="circular--square" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" width="50" height="50" style="border-radius: 50%;">
+                              <div class="media-body">
+                                  <div class="small-1">
+                                      <b>{{ve.NombreC}}</b>
+                                      <time class="ml-4 opaciy-70 small-3">{{ve.resenna}}</time>
+                                      <a href="{% url 'eliminar' ve.NombreC %}" style="color: #9b9b9b"><i class="far fa-trash-alt" style="float: right;position: relative;margin-left: 14px;"></i></a> <a href="{% url 'ModComentario' ve.NombreC %}" style="color: #9b9b9b"><i class="fas fa-edit" style="float: right;position: relative;margin-left: 14px;"></i></a>
+                                  </div>
+                                  <p>{{ve.comentario}}</p> 
+                              </div>
+                          </div>
+                          {%endfor%}
+                      </div>
+                      <div>
+                        <a class="btn btn-primary" href="{% url 'CrearComentario' %}" role="button">Comentar</a>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
 
                 <!--Copyright-->
                 <div class="copyright py-4 text-center text-white">
