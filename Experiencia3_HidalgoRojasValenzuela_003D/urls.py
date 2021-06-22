@@ -24,5 +24,6 @@ urlpatterns = [
     path('Registro/', include('GreenPanda.urls')),
     path('Despacho/', include('GreenPanda.urls')),
     path('Comentarios/', include('GreenPanda.urls')),
-    path('CrearComentario/', include('GreenPanda.urls'))
+    path('CrearComentario/', include('GreenPanda.urls')),
+    path('ModComentario/', include('GreenPanda.urls')),
 ]

@@ -69,3 +69,22 @@ def CrearComentario(request):
       
 
     )
+
+def ModComentario(request,id):
+    comentario = ComentarioC.objects.get(NombreC=id)
+
+    com ={
+        'form': ComentarioForm(instance=comentario)
+    }
+    if request.method=='POST':
+        formulario = ComentarioForm(data=request.POST, instance = comentario)
+        if formulario.is_valid:
+            formulario.save()
+            return redirect('Comentarios')
+    
+    
+    return render(request, 'GreenPanda/ModComentario.html', com
+    
+    
+    
+    )

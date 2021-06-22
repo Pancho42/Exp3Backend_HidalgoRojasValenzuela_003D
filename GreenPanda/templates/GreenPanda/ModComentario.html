@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang=en>
     <head>
-        <title>GreenPanda | Reseña</title>
+        <title>GreenPanda | Crear Reseña</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <link rel="stylesheet" type="text/css" href="{% static 'GreenPanda/css/estilo.css' %}">
@@ -50,28 +50,26 @@
             </div>
         </nav>
 
-        <div class="row">
-          <table class="table"> <!--Mostramos todos los vehiculos almacenados en admin-->
-              <thead>
-                <tr>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Comentario</th>
-                  <th scope="col">Reseña</th>
-                </tr>
-              </thead>
-              <tbody>
-                {%for ve in datos %}
-                    <tr>
-                        <td>{{ve.NombreC}}</td>
-                        <td>{{ve.comentario}}</td>
-                        <td>{{ve.resenna}}</td>
-                        <td><a href="{% url 'ModComentario' ve.NombreC %}">Modificar</a></td>
-                    </tr>
-                {%endfor%}
-              </tbody>
-          </table>
-    
-        </div>
+        <div class="container">
+          <div class="row">
+              <h1>Modificando Comentario</h1>
+          </div>
+  
+          <div class="row">
+                  <form method="POST" action="#" id="formulario">
+                      {%csrf_token%}
+                      <div class="form-group">
+                          {{form.as_table}}
+                      </div>
+                  
+                  
+                          <div class="form-group">
+                            <input type="submit" value="Modificar"> <input type="reset" value="Limpiar">
+                      </div>
+                  </form>
+  
+          </div>
+      </div>    
 
                 <!--Copyright-->
                 <div class="copyright py-4 text-center text-white">
