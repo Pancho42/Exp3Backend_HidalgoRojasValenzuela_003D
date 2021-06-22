@@ -10,4 +10,5 @@ urlpatterns=[
     path('Comentarios/',views.Comentarios, name='Comentarios'),
     path('CrearComentario/',views.CrearComentario, name='CrearComentario'),
     path('ModComentario/<id>',views.ModComentario, name='ModComentario'),
+    path('eliminar/<id>',views.eliminar, name='eliminar'),
 ]

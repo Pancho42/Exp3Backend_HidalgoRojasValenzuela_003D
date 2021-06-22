@@ -88,3 +88,9 @@ def ModComentario(request,id):
     
     
     )
+
+def eliminar(request,id):
+    comentario = ComentarioC.objects.get(NombreC=id)
+    comentario.delete()
+    return redirect('Comentarios')
+

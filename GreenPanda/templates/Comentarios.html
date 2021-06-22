@@ -66,6 +66,7 @@
                         <td>{{ve.comentario}}</td>
                         <td>{{ve.resenna}}</td>
                         <td><a href="{% url 'ModComentario' ve.NombreC %}">Modificar</a></td>
+                        <td><a href="{% url 'eliminar' ve.NombreC %}">Eliminar</a></td>
                     </tr>
                 {%endfor%}
               </tbody>
